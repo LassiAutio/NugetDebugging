@@ -9,7 +9,7 @@ namespace MyNugetConsumer
         {
             Console.WriteLine("This console app will use custom nuget to show how to debug it.");
 
-            var home = new MyHome { YearOfConstruction = 2020 };
+            var home = new MyHome { YearOfConstruction = 2000 };
             Console.WriteLine(home.GetCondition());
         }
     }
