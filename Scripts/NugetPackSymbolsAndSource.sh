@@ -1,0 +1,1 @@
+dotnet pack ../MyNuget/MyNuget.csproj --include-symbols --include-source -o ../MyLocalNugetFeed
