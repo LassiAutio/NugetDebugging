@@ -11,6 +11,13 @@ pool:
 
 steps:
 - task: DotNetCoreCLI@2
+  displayName: 'dotnet restore'
+  inputs:
+    command: 'restore'
+    projects: '**/MyNuget.csproj'
+    feedsToUse: 'select'
+
+- task: DotNetCoreCLI@2
   displayName: 'donet build'
   inputs:
     command: 'build'
