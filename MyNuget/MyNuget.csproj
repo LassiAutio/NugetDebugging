@@ -2,9 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>First version to release in Azure DevOps</Description>
-    <Version>1.0.3</Version>
   </PropertyGroup>
 
 </Project>
