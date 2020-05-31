@@ -11,7 +11,15 @@ pool:
 
 steps:
 - task: DotNetCoreCLI@2
+  displayName: 'donet build'
+  inputs:
+    command: 'build'
+    projects: '**/MyNuget.csproj'
+    arguments: '--no-restore --configuration $(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet pack'
   inputs:
     command: 'pack'
-    packagesToPack: '**/MyNuget.csproj'
-    versioningScheme: 'off'
+    projects: '**/MyNuget.csproj'
+    arguments: '--no-build --configuration $(buildConfiguration)'
