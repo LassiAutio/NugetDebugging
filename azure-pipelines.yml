@@ -25,3 +25,10 @@ steps:
   inputs:
     command: 'restore'
     projects: $(project)
+
+- task: DotNetCoreCLI@2
+  displayName: 'Build the project - $(buildConfiguration)'
+  inputs:
+    command: 'build'
+    arguments: '--no-restore --configuration $(buildConfiguration)'
+    projects: $(project)
