@@ -10,7 +10,7 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  buildConfiguration: 'Release'
+  buildConfiguration: 'Debug'
   dotnetSdkVersion: '3.1.100'
   project: '**/MyNuget.csproj'
 
