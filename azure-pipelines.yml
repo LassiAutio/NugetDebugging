@@ -33,12 +33,6 @@ steps:
     arguments: '--no-restore --configuration $(buildConfiguration)'
     projects: $(project)
 
-- task: PublishSymbols@2
-  inputs:
-    SearchPattern: '**/bin/**/*.pdb'
-    SymbolServerType: 'TeamServices'
-    TreatNotIndexedAsWarning: true
-
 - task: DotNetCoreCLI@2
   displayName: 'Pack the project - $(buildConfiguration)'
   inputs:
@@ -57,3 +51,9 @@ steps:
     nuGetFeedType: 'internal'
     publishVstsFeed: '41b217b1-fe05-4b0a-b735-b1e56684f7b0/9f162298-734a-4fec-88d3-eabad7bc4553'
     publishPackageMetadata: false
+
+- task: PublishSymbols@2
+  inputs:
+    SearchPattern: '**/bin/**/*.pdb'
+    SymbolServerType: 'TeamServices'
+    TreatNotIndexedAsWarning: true
