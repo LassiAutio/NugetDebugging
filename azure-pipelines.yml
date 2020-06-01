@@ -37,9 +37,10 @@ steps:
   displayName: 'Pack the project - $(buildConfiguration)'
   inputs:
     command: 'pack'
-    projects: '**/MyNuget.csproj'
-    arguments: '--no-build --configuration $(buildConfiguration)'
-    versioningScheme: byPrereleaseNumber
+    packagesToPack: '**/*.csproj'
+    includesymbols: true
+    includesource: true
+    versioningScheme: 'byPrereleaseNumber'
     majorVersion: '1'
     minorVersion: '0'
     patchVersion: '0'
