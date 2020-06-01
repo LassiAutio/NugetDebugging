@@ -33,6 +33,12 @@ steps:
     arguments: '--no-restore --configuration $(buildConfiguration)'
     projects: $(project)
 
+- task: PublishSymbols@2
+  inputs:
+    SearchPattern: '**/bin/**/*.pdb'
+    SymbolServerType: 'TeamServices'
+    TreatNotIndexedAsWarning: true
+
 - task: DotNetCoreCLI@2
   displayName: 'Pack the project - $(buildConfiguration)'
   inputs:
@@ -41,7 +47,7 @@ steps:
     versioningScheme: 'byPrereleaseNumber'
     majorVersion: '1'
     minorVersion: '0'
-    patchVersion: '3'
+    patchVersion: '4'
 
 - task: DotNetCoreCLI@2
   displayName: 'Push NuGet'
