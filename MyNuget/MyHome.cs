@@ -6,8 +6,6 @@
 
         public string GetCondition()
         {
-            return "You should do something with your home!";
-
             if (YearOfConstruction == 2020)
             {
                 return "It is a brand new home!";
