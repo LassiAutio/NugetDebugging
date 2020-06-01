@@ -38,12 +38,10 @@ steps:
   inputs:
     command: 'pack'
     packagesToPack: '**/*.csproj'
-    includesymbols: true
-    includesource: true
     versioningScheme: 'byPrereleaseNumber'
     majorVersion: '1'
     minorVersion: '0'
-    patchVersion: '1'
+    patchVersion: '2'
 
 - task: DotNetCoreCLI@2
   displayName: 'Push NuGet'
