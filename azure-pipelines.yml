@@ -20,11 +20,11 @@ steps:
 #  inputs:
 #    version: '$(dotnetSdkVersion)'
 
-- task: DotNetCoreCLI@2
-  displayName: 'Restore project dependencies'
-  inputs:
-    command: 'restore'
-    projects: $(project)
+#- task: DotNetCoreCLI@2
+#  displayName: 'Restore project dependencies'
+#  inputs:
+#    command: 'restore'
+#    projects: $(project)
 
 #- task: DotNetCoreCLI@2
 #  displayName: 'Build the project - $(buildConfiguration)'
@@ -48,7 +48,7 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      dotnet pack $(project) --include-symbols -o $(Build.ArtifactStagingDirectory) /p:PackageVersion=1.0.8
+      dotnet pack $(project) --include-symbols --include-source -o $(Build.ArtifactStagingDirectory) /p:PackageVersion=1.0.9
 
 - task: DotNetCoreCLI@2
   displayName: 'Push NuGet with symbols'
