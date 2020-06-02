@@ -38,10 +38,11 @@ steps:
   inputs:
     command: 'pack'
     packagesToPack: '**/*.csproj'
+    includesymbols: true
     versioningScheme: 'byPrereleaseNumber'
     majorVersion: '1'
     minorVersion: '0'
-    patchVersion: '4'
+    patchVersion: '5'
 
 - task: DotNetCoreCLI@2
   displayName: 'Push NuGet'
@@ -51,9 +52,3 @@ steps:
     nuGetFeedType: 'internal'
     publishVstsFeed: '41b217b1-fe05-4b0a-b735-b1e56684f7b0/9f162298-734a-4fec-88d3-eabad7bc4553'
     publishPackageMetadata: false
-
-- task: PublishSymbols@2
-  inputs:
-    SearchPattern: '**/bin/**/*.pdb'
-    SymbolServerType: 'TeamServices'
-    TreatNotIndexedAsWarning: true
