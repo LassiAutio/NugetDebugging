@@ -10,7 +10,7 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  buildConfiguration: 'Debug'
+  buildConfiguration: 'Release'
   dotnetSdkVersion: '3.1.100'
   project: '**/MyNuget.csproj'
 
@@ -42,7 +42,7 @@ steps:
     versioningScheme: 'byPrereleaseNumber'
     majorVersion: '1'
     minorVersion: '0'
-    patchVersion: '6'
+    patchVersion: '7'
 
 - task: DotNetCoreCLI@2
   displayName: 'Push NuGet with symbols'
