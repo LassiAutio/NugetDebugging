@@ -15,10 +15,10 @@ variables:
   project: '**/MyNuget.csproj'
 
 steps:
-- task: UseDotNet@2
-  displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
-  inputs:
-    version: '$(dotnetSdkVersion)'
+#- task: UseDotNet@2
+#  displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
+#  inputs:
+#    version: '$(dotnetSdkVersion)'
 
 - task: DotNetCoreCLI@2
   displayName: 'Restore project dependencies'
@@ -39,6 +39,7 @@ steps:
     command: 'pack'
     packagesToPack: '**/*.csproj'
     includesymbols: true
+    includesource: true
     versioningScheme: 'byPrereleaseNumber'
     majorVersion: '1'
     minorVersion: '0'
