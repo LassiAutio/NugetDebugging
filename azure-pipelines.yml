@@ -12,7 +12,7 @@ pool:
 variables:
   buildConfiguration: 'Release'
   dotnetSdkVersion: '3.1.100'
-  project: '**/MyNuget.csproj'
+  project: 'MyNuget/MyNuget.csproj'
 
 steps:
 #- task: UseDotNet@2
