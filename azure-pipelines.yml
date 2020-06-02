@@ -26,24 +26,29 @@ steps:
     command: 'restore'
     projects: $(project)
 
-- task: DotNetCoreCLI@2
-  displayName: 'Build the project - $(buildConfiguration)'
-  inputs:
-    command: 'build'
-    arguments: '--no-restore --configuration $(buildConfiguration)'
-    projects: $(project)
+#- task: DotNetCoreCLI@2
+#  displayName: 'Build the project - $(buildConfiguration)'
+#  inputs:
+#    command: 'build'
+#    arguments: '--no-restore --configuration $(buildConfiguration)'
+#    projects: $(project)
 
-- task: DotNetCoreCLI@2
-  displayName: 'Pack the project - $(buildConfiguration)'
+#- task: DotNetCoreCLI@2
+#  displayName: 'Pack the project - $(buildConfiguration)'
+#  inputs:
+#    command: 'pack'
+#    packagesToPack: '**/*.csproj'
+#    includesymbols: true
+#    includesource: true
+#    versioningScheme: 'byPrereleaseNumber'
+#    majorVersion: '1'
+#    minorVersion: '0'
+#    patchVersion: '7'
+
+- task: CmdLine@2
   inputs:
-    command: 'pack'
-    packagesToPack: '**/*.csproj'
-    includesymbols: true
-    includesource: true
-    versioningScheme: 'byPrereleaseNumber'
-    majorVersion: '1'
-    minorVersion: '0'
-    patchVersion: '7'
+    script: |
+      dotnet pack $(project) --include-symbols -o $(Build.ArtifactStagingDirectory)
 
 - task: DotNetCoreCLI@2
   displayName: 'Push NuGet with symbols'
