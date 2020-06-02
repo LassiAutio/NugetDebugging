@@ -48,7 +48,7 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      dotnet pack $(project) --include-symbols -o $(Build.ArtifactStagingDirectory)
+      dotnet pack $(project) --include-symbols -o $(Build.ArtifactStagingDirectory) /p:PackageVersion=1.0.8
 
 - task: DotNetCoreCLI@2
   displayName: 'Push NuGet with symbols'
