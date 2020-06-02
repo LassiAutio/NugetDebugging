@@ -42,13 +42,13 @@ steps:
     versioningScheme: 'byPrereleaseNumber'
     majorVersion: '1'
     minorVersion: '0'
-    patchVersion: '5'
+    patchVersion: '6'
 
 - task: DotNetCoreCLI@2
-  displayName: 'Push NuGet'
+  displayName: 'Push NuGet with symbols'
   inputs:
     command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.symbols.nupkg'
     nuGetFeedType: 'internal'
     publishVstsFeed: '41b217b1-fe05-4b0a-b735-b1e56684f7b0/9f162298-734a-4fec-88d3-eabad7bc4553'
     publishPackageMetadata: false
